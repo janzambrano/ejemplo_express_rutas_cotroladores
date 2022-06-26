@@ -9,6 +9,7 @@
 
 const express = require ('express'); // localizando express en el proyecto
 const app = express (); // declarando la variable app donde contendrá todo los métodos y propiedades de express para su posterior uso
+const path = require('path') // este modulo se encarga de normalizar rutas y una dirname con la carpeta public para las rutas estáticas
 
 // ya esto no lo usamos porque se va utilizar las respectivas rutas y controladores, esto solo lo ocupamos si no se utilizaría lo anterior mencionado
 /*app.get('/', (req, res) =>{
@@ -18,6 +19,14 @@ const app = express (); // declarando la variable app donde contendrá todo los 
 // Rutas
 const routes = require ('./src/routes/index.router') // requiriendo el archivo index.router.js con las rutas de index
 app.use(routes); // usando el archivo index.router.js con las rutas de index
+
+// Rutas estáticas
+app.use(express.static(path.join(__dirname, '/public')));
+
+// Rutas cuando una ruta no existe, error 404
+app.use((req, res) =>{
+    res.sendFile(path.join(__dirname, '/public/404.html'))
+});
 
 // habilitando servidor por el puerto 3000
 app.listen(3000, () =>{
