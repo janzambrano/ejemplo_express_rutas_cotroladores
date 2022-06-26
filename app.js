@@ -4,6 +4,8 @@
 
 // Paso 3 -- luego las lineas 5 - 7 del archivo index.router.js no se utilizaran, por eso las comente y tendremos que crear la carpeta controller y dentro de ella el archivo index.controller.js, dentro este colocamos parte de la función comentada del del archivo index.router.js de las lineas 5 - 7 (solo la función), con demás detalles en el.
 
+// conclusion, separamos la funcionalidad en 3 piezas, por un lado el app.js que usa las rutas, por otro la ruta (router) y por otro la funcionalidad cuando un usuario o cliente se conecta a esa ruta (controladores)
+
 
 const express = require ('express'); // localizando express en el proyecto
 const app = express (); // declarando la variable app donde contendrá todo los métodos y propiedades de express para su posterior uso
