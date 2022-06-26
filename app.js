@@ -11,6 +11,9 @@ const express = require ('express'); // localizando express en el proyecto
 const app = express (); // declarando la variable app donde contendrá todo los métodos y propiedades de express para su posterior uso
 const path = require('path') // este modulo se encarga de normalizar rutas y una dirname con la carpeta public para las rutas estáticas
 
+app.set('view engine', 'pug'); // estableciendo el motor de plantillas pug para usar en el curso estamos viendo ejs este es otro
+app.set('views', path.join(__dirname, '/src/views')); //estableciendo las carpetas donde estarán todas las vistas del proyecto, OJO con las rutas y carpetas
+
 // ya esto no lo usamos porque se va utilizar las respectivas rutas y controladores, esto solo lo ocupamos si no se utilizaría lo anterior mencionado
 /*app.get('/', (req, res) =>{
     res.send('La conexión ha sido correcta')
